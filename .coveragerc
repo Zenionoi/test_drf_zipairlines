@@ -1,0 +1,10 @@
+[run]
+source = airplanes
+
+[report]
+exclude_lines =
+    pragma: no cover
+    def __str__
+    def __repr__
+    if settings.DEBUG
+    raise NotImplementedError
