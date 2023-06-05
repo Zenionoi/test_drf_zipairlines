@@ -4,8 +4,7 @@ from rest_framework import status
 from rest_framework.test import APIClient
 
 from airplanes.models import Airplane
-from airplanes.serializers import (AirplaneListSerializer,
-                                   AirplaneDetailSerializer)
+from airplanes.serializers import AirplaneSerializer, AirplaneDetailSerializer
 
 AIRPLANE_URL = reverse("airplanes:airplane-list")
 
@@ -29,7 +28,7 @@ class AirplaneTests(TestCase):
 
         res = self.client.get(AIRPLANE_URL)
 
-        serializer = AirplaneListSerializer(
+        serializer = AirplaneSerializer(
             Airplane.objects.all(), many=True
         )
         self.assertEqual(res.status_code, status.HTTP_200_OK)

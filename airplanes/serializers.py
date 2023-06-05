@@ -9,11 +9,7 @@ class AirplaneSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class AirplaneListSerializer(AirplaneSerializer):
-    pass
-
-
-class AirplaneDetailSerializer(AirplaneSerializer):
+class AirplaneDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Airplane
         fields = ("id", "passengers", "tank", "consumption", "minutes")
